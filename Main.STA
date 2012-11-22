@@ -1,0 +1,164 @@
+
+ROM used: 20282 (43%)
+          20282 (43%) including unused fragments
+
+          4 Average locations per line
+          13 Average locations per statement
+
+RAM used: 403 (10%) at main() level
+          472 (12%) worst case
+
+Stack used: 10 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   57    14   1  Main.c
+  536    62   4  KJunior.h
+  748     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\devices\18f66k22.h
+  222     0   0  constants.h
+  122     0   0  variables.c
+ 1647   896  58  KJunior.c
+ 1351   359  23  ..\..\..\..\..\..\Program Files (x86)\PICC\drivers\stdlib.h
+   32     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\drivers\stddef.h
+  423   125   8  ..\..\..\..\..\..\Program Files (x86)\PICC\drivers\string.h
+   28     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\drivers\ctype.h
+  168    81   5  HemLinCam.h
+   18     0   0  Basic_functions.h
+   31    11   1  Basic_functions.c
+----- -----
+ 5383  1548 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     42   0   1             @delay_ms1
+0     28   0   1             @I2C_WRITEU_1
+0     28   0   1             @I2C_READU_1
+0     78   0   2             @MUL88
+0     56   0   2             @ITOF
+0    352   1  14             @DIVFF
+0    432   1   9  1815 10.5  atoi
+0     90   0  14             @MUL3232
+0     32   0   3   149  4.7  chartohex
+0    948   2   7  4219  8.9  KJunior_init
+0     34   0   0             @const463
+0     34   0   2             @PSTRINGC_57600_31766_31767
+0     32   0   0             @const465
+0      2   0   0             @const466
+0     10   0   0             @const467
+0     42   0   3             @PSTRINGCN_57600_31766_31767
+0     44   0   3             @DIV88
+0    190   0   6             @PRINTF_D0_57600_31766_31767
+0     28   0   0             @const476
+0     34   0   0             @const477
+0     38   0   2             @PSTRINGC_57600_31793_31794
+0     32   0   0             @const479
+0      2   0   0             @const480
+0     10   0   0             @const481
+0     44   0   3             @PSTRINGCN_57600_31793_31794
+0    204   1   6             @PRINTF_D0_57600_31793_31794
+0     28   0   0             @const487
+0    170   0   1   592  8.1  Set_left_motor
+0    158   0   1   592  8.1  Set_right_motor
+0     44   0   0   250  3.2  Motor_Conversion
+0    218   1   1   615  5.3  Set_Freq_note
+0    154   0   0   972  5.3  TV_Remote_Control
+0   2078   5   5  3193  6.4  Analog_Interrupt
+0    444   1   2  2665 10.8  Sheduler_Interrupt
+0     40   0   2    76  2.4  Buzzer_Interrupt
+0     52   0   2   218  4.1  TV_Remote_Interrupt
+0     42   0   1   206  3.6  KJunior_IR_Send32x
+0    538   1   3  3210 11.9  RC5_Decoding_Interrupt
+0     34   0   0    83  2.5  __default
+0     22   0   0             @const502
+0     22   0   0             @const503
+0     64   0   0    98  2.6  __Z
+0    720   2  11  2328  8.4  __A
+0     22   0   0             @const512
+0     22   0   0             @const513
+0     22   0   0             @const514
+0     22   0   0             @const515
+0    152   0   0   131  2.8  __B
+0      2   0   0             @const520
+0      2   0   0             @const522
+0    496   1  11  1566  8.4  __D
+0     22   0   0             @const528
+0     22   0   0             @const529
+0    154   0   0   125  2.8  __E
+0    194   0   6             @PRINTF_D_57600_31766_31767
+0    208   1   6             @PRINTF_D_57600_31793_31794
+0    212   1  10   559  6.8  __H
+0    718   2  31  2002  9.3  __K
+0     48   0   0             @const552
+0     66   0   0             @const553
+0     26   0   0             @const554
+0     72   0   0             @const555
+0     26   0   0             @const556
+0     20   0   0             @const557
+0    208   1   3   669  5.9  __J
+0     70   0   2             @PRINTF_X_57600_31766_31767
+0     76   0   2             @PRINTF_X_57600_31793_31794
+0    348   1   1  1111  8.6  __L
+0     22   0   0             @const574
+0     22   0   0             @const575
+0     52   0   5             @READBITA
+0     66   0   6             @WRITEBITA
+0    544   1   0   597  3.8  __N
+0    226   1   9             @PRINTF_LD_57600_31766_31767
+0    230   1   9             @PRINTF_LD_57600_31793_31794
+0    544   1   0   597  3.8  __O
+0    384   1   5  1290  7.2  __R
+0    130   0   2             @PRINTF_U_57600_31766_31767
+0    138   0   2             @PRINTF_U_57600_31793_31794
+0    154   0   0   125  2.8  __T
+0    452   1  10  1454  7.4  __V
+0     22   0   0             @const619
+0     22   0   0             @const620
+0    218   1   2   650  5.2  __W
+0   1800   4  19  7010  5.0  __X
+0    268   1   2   573  4.2  __C
+0      6   0   0             @const653
+0     10   0   0             @const654
+0    444   1  58  1323  7.4  __Y
+0    680   2   0  2120  7.8  SerialCommandHandler
+0    148   0  13             @DIV3232
+0    270   1  12             @PRINTF_L32D_57600_31766_31767
+0    284   1  12             @PRINTF_L32D_57600_31793_31794
+0    172   0   9             @PRINTF_LU_57600_31766_31767
+0    176   0   9             @PRINTF_LU_57600_31793_31794
+0    116   0   3   428  6.6  USB_Serial_Interrupt
+0    124   0   3   428  6.6  BT_Serial_Interrupt
+0     82   0   2   323  5.0  KJunior_set_speed
+0     18   0   0    17  1.3  KJunior_get_time
+0     26   0   1    21  0.9  HemLinCam_Init
+0    330   1  10   354  4.2  rotate_no_move
+0     18   0   0   351  4.0  @const778
+0     68   0   5   354  4.0  @FTOSD
+0     12   0   0    55  2.6  @const782
+0    136   0   8    55  2.6  get_speed_in_mms
+0    112   0  12    95  2.7  sleep_ms
+0    552   1   4   472  5.1  MAIN
+0     18   0   0   472  5.1  @const789
+0     20   0   0   472  5.1  @const790
+ Inline        0   176  4.0  @cinit1
+
+Program metrics:
+    Functions               49
+    Statements              1548
+    Comments                2354
+    Volume (V)              81432
+    Difficulty (D)          267.7
+    Effort to implement (E) 21800946
+    Time to implement (T)   336 hours, 26 minutes
+    Est Delivered Bugs (B)  26
+    Cyclomatic Complexity   209
+    Maintainability (MI)    27
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000F4   238  0  
+000F6-0B9AE  20040  27250  
+
+
+
