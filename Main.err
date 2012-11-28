@@ -1,7 +1,0 @@
->>> Warning 203 "Main.c" Line 34(1,1): Condition always TRUE
->>> Warning 216 "Main.c" Line 58(0,1): Interrupts disabled during call to prevent re-entrancy:  (@MUL88)
->>> Warning 216 "Main.c" Line 58(0,1): Interrupts disabled during call to prevent re-entrancy:  (Motor_Conversion)
->>> Warning 202 "Main.c" Line 30(30,41): Variable never used:   loopcontrol
-      Memory usage:   ROM=43%      RAM=10% - 12%
-      0 Errors,  4 Warnings.
-Build Successful.
