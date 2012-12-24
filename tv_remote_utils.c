@@ -30,6 +30,8 @@ int8 to_pad_number(unsigned char raw_input)
          return 8;
       case 44:
          return 9;
+      case 42:
+         return 11;
       default:
          return -1;
    }
@@ -43,4 +45,3 @@ int8 to_pad_number(unsigned char raw_input)
 int8 get_tv_remote_pad_number() {
    return to_pad_number(KJunior_get_tv_data());
 }
-
