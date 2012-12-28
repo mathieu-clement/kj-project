@@ -1,8 +1,6 @@
 #include "KJunior.h"
 
 #include "Basic_functions.h"
-#include "binary_led_transcoder.h"
-//#include "simple_beep.h"
 
 
 //--------------------------------------------------------------------------------//
