@@ -95,6 +95,7 @@ void beep_blues_scale();
 
 void beep_star_wars();
 
-#include "simple_beep.c"
+void beep_badinerie();
 
+#include "simple_beep.c"
 
