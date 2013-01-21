@@ -10,7 +10,7 @@ void rotate_no_move(unsigned int32 angle, int speed)
 {
    unsigned int speed_ms = get_speed_in_mms(speed);
    fprintf(USB, "speed ms : %ud \r\n", speed_ms);
-   unsigned int32 ms = (unsigned int32) (PERIM / speed_ms)  * 1000;
+   unsigned int32 ms = (unsigned int32) (PERIM * 1000 / speed_ms);
    fprintf(USB, "ms : %Ld \r\n", ms);
    KJunior_set_speed(speed, -speed);
    sleep_ms(ms);
@@ -18,9 +18,17 @@ void rotate_no_move(unsigned int32 angle, int speed)
    
 }
 
+int16 abs(INT16 i)
+{
+   IF (i < 0)
+      RETURN i * -1;
+
+   RETURN i;
+}
+
 unsigned int get_speed_in_mms(int32 speed)
 {
-   return (speed * 70 / 20) + 30;
+   return (unsigned int)((speed * 70.0 / 20.0) + 30);
 }
 
 void sleep_ms(unsigned int32 ms)

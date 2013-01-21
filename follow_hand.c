@@ -85,7 +85,7 @@ void follow_hand(VOID)
  * this function checks the two ground front captors and return true (1) is the floor is missing,
  * false (0) otherwise.
  **/
-int8 ground_is_missing()
+int1 ground_is_missing()
 {
    INT16 lim = 2800;
 
