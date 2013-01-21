@@ -1,3 +1,6 @@
+#ifndef BASIC_FUNC
+#define BASIC_FUNC 1
+
 #define DIAMETER 100
 #define PI 3.141592653
 #define PERIM (DIAMETER * PI)
@@ -14,4 +17,6 @@ unsigned int get_speed_in_mms(int32 speed);
 
 
 
-#include "Basic_functions.c"
+#include "basic_functions.c"
+
+#endif

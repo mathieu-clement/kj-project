@@ -1,4 +1,5 @@
-
+#ifndef SIMPLE_BEEP
+#define SIMPLE_BEEP 1
 // This library is useful to make some frickin' noise with the Robot!
 
 #define MUTE      0
@@ -99,3 +100,5 @@ void beep_badinerie();
 
 #include "simple_beep.c"
 
+
+#endif

@@ -2,7 +2,7 @@
 // Linear camera
 #include "HemLinCam.h"
 
-#include "Basic_functions.h"
+#include "basic_functions.h"
 #include "simple_beep.h"
 #include "binary_led_transcoder.h"
 #include "tv_remote_utils.h"
@@ -22,8 +22,6 @@
 //--------------------------------------------------------------------------------//
 //- Main program                                                                 -//
 //--------------------------------------------------------------------------------//
-#separate
-
 void print_pixels(unsigned char *array)
 {
    // NB: Assume size of 34
