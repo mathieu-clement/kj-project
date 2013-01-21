@@ -1,5 +1,13 @@
+/**
+ * @file
+ * 
+ * @brief Utilities to play notes with the buzzer
+ */
 
-void incremental_beep()
+/**
+ * Go up the scale very quickly with the buzzer.
+ */
+void incremental_beep(void)
 {
    for(int8 i=0; i<=48; i++)
    {
@@ -18,7 +26,7 @@ void incremental_beep()
  * 4 for quarter note, 8 for eighth note, 16 for sixteenth note, ...
  * (and also 3 for a dotted quarter note for instance).
  * @param tempo Tempo in beats per minute
- * @returns the duration in ms of the specified note value depending on the tempo. 
+ * @return the duration in ms of the specified note value depending on the tempo. 
  */
 float note_length_ms(int8 value, int8 tempo)
 {
@@ -33,22 +41,26 @@ float note_length_ms(int8 value, int8 tempo)
    return length;
 }
 
-int8 last_led = 0;
+// Last number shown with leds (see binary led transcoder.c)
+int8 bp_last_led = 0;
 
-void toggle_led()
+/**
+ * Toggle leds to give visual feedback of the playing tune.
+ */
+void toggle_led(void)
 {
    // This function has to be lightning FAST!
 
-   if(last_led >= 0 && last_led < 3)
+   if(bp_last_led >= 0 && bp_last_led < 3)
    {
-      last_led++;
+      bp_last_led++;
    }
    else
    {
-      last_led = 0;
+      bp_last_led = 0;
    }
    
-   if(last_led == 0) {
+   if(bp_last_led == 0) {
       KJunior_led_left(1);
       KJunior_led_right(0);
    } else if (last_led == 1) {
@@ -63,22 +75,31 @@ void toggle_led()
    }
 }
 
+/**
+ * Beep a note.
+ * 
+ * @param note the note to play (see simple_beep.h constants)
+ * @param note_value the note value (e.g. 4 for a quarter note, 1 for a whole note)
+ * @param tempo the tempo
+ */
 void beep_note(int8 note, int8 note_value, int8 tempo)
 {
    KJunior_beep(note);
    float total_length = note_length_ms(note_value, tempo);
-   toggle_led(); // TODO REMOVE line
+   toggle_led();
    sleep_ms(total_length);
    KJunior_beep(MUTE);
    // note spacing by muting in-between
    sleep_ms(10);
 }
 
-#define note_value 4
-
-void beep_blues_scale()
+/**
+ * Play the Blues scale (C - Eb - F - F# - G - Bb - C)
+ */
+void beep_blues_scale(void)
 {
    int8 tempo = 120;
+   int8 note_value = 4;
   
    beep_note(C_2, note_value, tempo);
    beep_note(E_FLAT_2, note_value, tempo);
@@ -89,7 +110,10 @@ void beep_blues_scale()
    beep_note(C_3, note_value, tempo);
 }
 
-void beep_star_wars()
+/**
+ * Play Star wars tune
+ */
+void beep_star_wars(void)
 {
    int8 tempo = 100;
    
@@ -194,9 +218,9 @@ void beep_star_wars()
 }
 
 /**
-   Bach Badinerie (BWV1067)
-*/
-void beep_badinerie()
+ * Play Bach Badinerie (BWV1067)
+ */
+void beep_badinerie(void)
 {
 
 int8 tempo = 130;
@@ -506,4 +530,3 @@ beep_note(C_SHARP_3, 4, tempo);
 beep_note(B_2, 2, tempo);
 
 } // end beep_badinerie()
-

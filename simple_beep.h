@@ -2,8 +2,11 @@
 #define SIMPLE_BEEP 1
 // This library is useful to make some frickin' noise with the Robot!
 
+// MUTE buzzer
 #define MUTE      0
 
+// Notes
+// Please refer to K-Junior documentation for more information.
 #define C_2       1
 #define C_SHARP_2 2
 #define D_FLAT_2  2
@@ -77,26 +80,17 @@
 #define B_5       48
 
 
-void incremental_beep();
+void incremental_beep(void);
 
-/**
- * Returns the duration in ms of the specified note value depending on the tempo.
- *
- * @param value Note value. E.g. 1 for whole note, 2 for half note,
- * 4 for quarter note, 8 for eighth note, 16 for sixteenth note, ...
- * (and also 3 for a dotted quarter note for instance).
- * @param tempo Tempo in beats per minute
- * @returns the duration in ms of the specified note value depending on the tempo. 
- */
 float note_length_ms(int8 value, int8 tempo);
 
 void beep_note(int8 note, int8 note_value, int8 tempo);
 
-void beep_blues_scale();
+void beep_blues_scale(void);
 
-void beep_star_wars();
+void beep_star_wars(void);
 
-void beep_badinerie();
+void beep_badinerie(void);
 
 #include "simple_beep.c"
 

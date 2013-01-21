@@ -1,4 +1,8 @@
-//#include "tv_remote_utils.h"
+/**
+ * @file
+ * 
+ * @brief Utilities to read keys pressed from the TV remote control
+ */
 
 /**
  * Convert the raw button id from TV remote to the button number.
@@ -42,6 +46,6 @@ int8 to_pad_number(unsigned char raw_input)
  *
  * @return the last number pressed on the TV remote number pad.
  */
-int8 get_tv_remote_pad_number() {
+int8 get_tv_remote_pad_number(void) {
    return to_pad_number(KJunior_get_tv_data());
 }
