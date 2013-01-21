@@ -1,3 +1,16 @@
+#define TV_POWER        38
+#define TV_MUTE         36
+#define TV_CH_PLUS      30
+#define TV_CH_MINUS     28
+#define TV_VOL_PLUS     18
+#define TV_VOL_MINUS    20
+#define TV_TV_AV        34
+#define TV_I_II         56
+#define TV_3            56
+#define TV_ARROW        56
+// TV_0 ---> TV_11 : Please use to_pad_number if needed
+#define TV_CH_PC        32
+
 /**
  * Convert the raw button id from TV remote to the button number.
  *
@@ -13,4 +26,3 @@ int8 to_pad_number(unsigned char raw_input);
 int8 get_tv_remote_pad_number();
 
 #include "tv_remote_utils.c"
-

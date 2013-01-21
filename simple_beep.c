@@ -33,14 +33,45 @@ float note_length_ms(int8 value, int8 tempo)
    return length;
 }
 
+int8 last_led = 0;
+
+void toggle_led()
+{
+   // This function has to be lightning FAST!
+
+   if(last_led >= 0 && last_led < 3)
+   {
+      last_led++;
+   }
+   else
+   {
+      last_led = 0;
+   }
+   
+   if(last_led == 0) {
+      KJunior_led_left(1);
+      KJunior_led_right(0);
+   } else if (last_led == 1) {
+      KJunior_led_left(0);
+      KJunior_led_frontleft(1);
+   } else if (last_led == 2) {
+      KJunior_led_frontleft(0);
+      KJunior_led_frontright(1);
+   } else {
+      KJunior_led_frontright(0);
+      KJunior_led_right(1);
+   }
+}
+
 void beep_note(int8 note, int8 note_value, int8 tempo)
 {
    KJunior_beep(note);
    float total_length = note_length_ms(note_value, tempo);
-   KJunior_delay_ms(total_length);
+   toggle_led(); // TODO REMOVE line
+   sleep_ms(total_length);
    KJunior_beep(MUTE);
    // note spacing by muting in-between
-   KJunior_delay_ms(10);
+   sleep_ms(10);
 }
 
 #define note_value 4
@@ -60,7 +91,7 @@ void beep_blues_scale()
 
 void beep_star_wars()
 {
-   int8 tempo = 160;
+   int8 tempo = 100;
    
    int8 triolet= 14;
    
@@ -162,4 +193,317 @@ void beep_star_wars()
    beep_note(G_3, 8, tempo);
 }
 
+/**
+   Bach Badinerie (BWV1067)
+*/
+void beep_badinerie()
+{
+
+int8 tempo = 130;
+
+// Pause 2 seconds
+sleep_ms(2000);
+
+// Repeat two times
+for(int i=0; i<2; i++)
+{
+beep_note(B_3, 8, tempo);
+beep_note(D_4, 16, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_3, 8, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(B_2, 4, tempo);
+
+beep_note(F_SHARP_2, 16, tempo);
+beep_note(B_2, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(B_2, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(B_2, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(B_2, 16, tempo);
+beep_note(A_SHARP_2, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(D_3, 8, tempo);
+beep_note(B_2, 8, tempo);
+
+// very first section again
+beep_note(B_3, 8, tempo);
+beep_note(D_4, 16, tempo);                                                                           
+beep_note(B_3, 16, tempo);                                                                           
+beep_note(F_SHARP_3, 8, tempo);                                                                      
+beep_note(B_3, 16, tempo);                                                                           
+beep_note(F_SHARP_3, 16, tempo);                                                                     
+beep_note(D_3, 8, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(B_2, 4, tempo);
+
+beep_note(D_3, 8, tempo);
+beep_note(D_3, 8, tempo);
+beep_note(D_3, 8, tempo); // 2nd row
+beep_note(D_3, 8, tempo);
+beep_note(B_3, 8, tempo);
+beep_note(D_3, 8, tempo);
+// trille
+beep_note(D_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(D_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(C_SHARP_3, 8, tempo);
+
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(D_4, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+// trille
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(G_SHARP_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(G_SHARP_3, 32, tempo);
+beep_note(F_3, 8, tempo); // E#
+
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(F_3, 16, tempo); // E#
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+
+beep_note(A_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(F_3, 16, tempo); // E#
+
+beep_note(F_SHARP_3, 16, tempo); // E#
+beep_note(B_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(F_3, 16, tempo); // E#
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(C_SHARP_4, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_4, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(F_3, 16, tempo); // E#
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_4, 16, tempo);
+beep_note(C_SHARP_4, 16, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(C_SHARP_4, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(G_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(A_3, 8, tempo);
+// trille
+beep_note(G_SHARP_3, 32, tempo);
+beep_note(A_3, 32, tempo);
+beep_note(G_SHARP_3, 32, tempo);
+beep_note(A_3, 32, tempo);
+beep_note(F_SHARP_3, 4, tempo);
+} // end for repeat two times (1st part)
+
+/*
+   ##################
+   #### 2nd PART ####
+   ##################
+*/
+for(int i2=0; i2<2; i2++)
+{
+
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(C_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(A_2, 8, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(A_2, 16, tempo);
+beep_note(F_SHARP_2, 4, tempo);
+
+beep_note(C_3, 8, tempo); // C becarre
+beep_note(B_2, 8, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(D_SHARP_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(A_3, 8, tempo);
+beep_note(G_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(G_3, 8, tempo);
+beep_note(E_3, 8, tempo);
+
+beep_note(G_3, 8, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(G_3, 16, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(G_3, 16, tempo);                                        
+beep_note(E_3, 16, tempo);                                        
+beep_note(C_SHARP_3, 8, tempo);                                   
+beep_note(E_3, 16, tempo);                                        
+beep_note(C_SHARP_3, 16, tempo);                                  
+beep_note(A_2, 4, tempo);
+beep_note(MUTE, 16, tempo); // mute instead of quarter + sixteenth
+
+beep_note(D_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(G_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+
+beep_note(D_3, 16, tempo);
+beep_note(G_3, 16, tempo); // !
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(A_3, 16, tempo); // !
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(B_3, 16, tempo); // !
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+
+beep_note(D_3, 16, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(G_3, 16, tempo);
+beep_note(A_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+// trille
+beep_note(E_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(D_3, 4, tempo);
+
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+beep_note(D_4, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+// trille
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(G_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(G_3, 32, tempo);
+beep_note(E_3, 8, tempo);
+
+beep_note(E_3, 8, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(C_SHARP_4, 8, tempo);
+beep_note(E_3, 8, tempo);
+// trille
+beep_note(E_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(D_3, 4, tempo);
+beep_note(D_3, 8, tempo);
+
+beep_note(B_3, 8, tempo);
+beep_note(D_4, 16, tempo);
+beep_note(B_3, 16, tempo);
+beep_note(G_3, 6, tempo); // noire pointée
+beep_note(B_3, 32, tempo);
+beep_note(A_3, 32, tempo);
+beep_note(G_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+
+beep_note(E_3, 6, tempo); // noire pointée
+beep_note(G_3, 32, tempo);
+beep_note(F_SHARP_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(D_3, 32, tempo);
+beep_note(C_3, 16, tempo); // do bécarre
+beep_note(E_3, 16, tempo);
+beep_note(G_3, 16, tempo);
+beep_note(E_3, 16, tempo);
+beep_note(C_3, 16, tempo); // do bécarre (mesure)
+beep_note(B_2, 16, tempo);
+beep_note(C_3, 16, tempo); // do bécarre (mesure)
+beep_note(B_2, 16, tempo);
+
+beep_note(A_SHARP_2, 8 tempo);
+beep_note(F_SHARP_2, 8, tempo);
+beep_note(G_2, 8 tempo);
+beep_note(F_SHARP_2, 8, tempo);
+
+beep_note(B_2, 8, tempo);
+beep_note(A_SHARP_2, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(E_3, 8, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(D_3, 8, tempo);
+
+beep_note(B_2, 32, tempo);
+beep_note(C_SHARP_3, 32, tempo);
+beep_note(D_3, 32, tempo);
+beep_note(E_3, 32, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+
+beep_note(D_3, 16, tempo);
+beep_note(F_SHARP_3, 16, tempo);
+beep_note(B_3, 8, tempo);
+beep_note(F_SHARP_3, 8, tempo);
+
+beep_note(E_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+beep_note(C_SHARP_3, 16, tempo);
+beep_note(D_3, 16, tempo);
+
+// Very last note is special and played outside the for loop
+if(i2==0){ 
+   beep_note(B_2, 4, tempo);
+   beep_note(MUTE, 2, tempo);
+}
+
+} // end for repeat two times (2nd part)
+
+// Ending / CODA
+beep_note(MUTE, 4, tempo);
+beep_note(C_SHARP_3, 4, tempo);
+beep_note(B_2, 2, tempo);
+
+} // end beep_badinerie()
 
