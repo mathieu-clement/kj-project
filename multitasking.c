@@ -1,15 +1,20 @@
+//!< used in order to make the robot beep 
 #include "simple_beep.h"
 /*******************************************************************************
- *
- * Multitasking 
- *--------------
- * See the .h file for more informations...
+ * @file
+ * 
+ * @brief The Multitasking program
+ * See the multitasking.h file for more informations...
  *
  *******************************************************************************/
 /**
- * simple methods to set the rotors to turn 
+ * simple method to make the robot turn left at normal speed
  */
 void mt_turn_left()  { KJunior_set_speed( -MT_NORMAL_SPEED,  MT_NORMAL_SPEED ); }
+
+/**
+ * simple method to make the robot turn right at normal speed 
+ */
 void mt_turn_right() { KJunior_set_speed(  MT_NORMAL_SPEED, -MT_NORMAL_SPEED ); }
 
 

@@ -1,22 +1,10 @@
-/**
- * This method makes the robot follow a hand or an object. IF the object is detected
- * by the front captor, the robot will move forward until the object either disappear or come too close.
- * IF the robot detects that the floor is missing, it will hurriedly move backward and stop.
- * IF the object is detected to the left or to the right of the robot, the latter will rotate
- * in its direction.
- * The robot will finally go backward and follow the hand IF it is detected by the robot's
- * rear captor.
- *
- * Note : there is plenty of room FOR improvement. For example, the robot is not really fast 
- * nor smooth, and sometimes the hand is not correctly detected. 
- * When an object is detected by the front and sides captors, the robot should normally
- * either move forward or stop. but it will aslo sometimes rotate left to right repeatedly.
+/*******************************************************************************
+ * @file
  * 
- * @version : 1
- * @author : Lucy Linder
- * @date : 02.12.2012
+ * @brief The Follow Hand program
+ * See the follow_hand.h file for more informations...
  *
- **/
+ *******************************************************************************/
  
  
  /**
