@@ -63,10 +63,10 @@ void toggle_led(void)
    if(bp_last_led == 0) {
       KJunior_led_left(1);
       KJunior_led_right(0);
-   } else if (last_led == 1) {
+   } else if (bp_last_led == 1) {
       KJunior_led_left(0);
       KJunior_led_frontleft(1);
-   } else if (last_led == 2) {
+   } else if (bp_last_led == 2) {
       KJunior_led_frontleft(0);
       KJunior_led_frontright(1);
    } else {

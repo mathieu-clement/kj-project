@@ -1,3 +1,6 @@
+#ifndef BINARY_LED_TRANSCODER_H
+#define BINARY_LED_TRANSCODER_H
+
 
 /**
  * Display the specified number in binary format with the four supplied LEDs.
@@ -7,3 +10,5 @@
 void led_display_number(int8 number);
 
 #include "binary_led_transcoder.c"
+
+#endif

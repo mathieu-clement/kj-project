@@ -4,6 +4,8 @@
  * @brief Barcode Finder Program
  */
 
+#include "simple_camera_reading.h"
+
 /**
  * The Barcode Finder looks for a five stripes barcode and moves to it.
  * 
@@ -11,17 +13,17 @@
 void barcode_finder(void)
 {
       // Build entire_pixels_array
-      char* entire_pixels_array = cr_make_entire_pixels_array();
+      char* entire_pixels_array = cr_make_single_pixels_array();
      
       if(bf_is_barcode_in_view(entire_pixels_array))
       {
-	// Move forward
-	KJunior_set_speed(3,3);
+   // Move forward
+   KJunior_set_speed(3,3);
       }
       else
       {
-	// Rotate left. Maybe next time we look for it, we'll find it.
-	KJunior_set_speed(-3,3);
+   // Rotate left. Maybe next time we look for it, we'll find it.
+   KJunior_set_speed(-3,3);
       }
 }
 

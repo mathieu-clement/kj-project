@@ -1,3 +1,5 @@
+#include "binary_led_transcoder.h"
+
 /**
  * Display the specified number in binary format with the four supplied LEDs.
  *

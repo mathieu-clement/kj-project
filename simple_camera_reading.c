@@ -4,6 +4,8 @@
  * @brief Utilities to read and print pixels from the linear camera
  */
 
+#include "simple_camera_reading.h"
+
 /**
  * Prints an array of 34 pixels to Bluetooth output.
  *
@@ -16,14 +18,14 @@ void cr_print_pixels(unsigned char *array34)
    
    for (int i = 0; i<array_size; i++)
    {
-      fprintf (BT, "%u ", array[i]);
+      fprintf (BT, "%u ", array34[i]);
    }
 }
 
 /**
  * Concatenate the three 34 pixels arrays into one single 102 pixels array.
  */
-char* cr_make_single_pixels_array(void)
+char* cr_make_single_pixels_array()
 {
    char array[102];
    
@@ -49,7 +51,7 @@ char* cr_make_single_pixels_array(void)
 /**
  * Prints a line of 102 pixel values to Bluetooth serial port.
  */
-void cr_print_pixels_bluetooth(void) {
+void cr_print_pixels_bluetooth() {
    // Fire the camera shutter to update the pixels arrays
    if (cr_threshold_enabled)
       HemLinCam_Read_Pixels_Thresholded () ;

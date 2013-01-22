@@ -1,3 +1,6 @@
+#include "simple_camera_settings_with_tv_remote.h"
+#include "tv_remote_utils.h"
+#include "binary_led_transcoder.h"
 
 /**
  * Init program to read camera settings from TV remote and set them.
@@ -92,7 +95,7 @@ void cs_set_camera_with_tv_remote(void)
          // image is already full white around 10-15...
          cr_exposition_time++;
          
-	 // Set the exposition time for real
+    // Set the exposition time for real
          HemLinCam_Set_Exposition_Time(cr_exposition_time);
          // Show exposition time with LEDs
          // 16 will be shown as 0, 17 as 1, 18 as 2, ... (modulo 16)
@@ -102,13 +105,13 @@ void cs_set_camera_with_tv_remote(void)
       // Exposition time DOWN
       if(cs_exp_time_down())
       {
-         if(exposition_time != 0) // do not go below 0
+         if(cr_exposition_time != 0) // do not go below 0
          {
-            exposition_time--;
+            cr_exposition_time--;
          }
          
          // Set the exposition time for real
-         HemLinCam_Set_Exposition_Time(exposition_time);
+         HemLinCam_Set_Exposition_Time(cr_exposition_time);
          led_display_number(cr_exposition_time % 16);
       }
       
@@ -118,7 +121,7 @@ void cs_set_camera_with_tv_remote(void)
          // Do not go over 240
          if(cr_threshold != 240)
          {
-            threshold += CS_THRESHOLD_INCREMENT; // Move threshold 40 up
+            cr_threshold += CS_THRESHOLD_INCREMENT; // Move threshold 40 up
          }
          
          HemLinCam_Set_Threshold(cr_threshold);

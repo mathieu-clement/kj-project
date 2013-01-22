@@ -34,6 +34,9 @@
 // The Follow Hand Program
 #include "follow_hand.h" 
 
+// The program to find the 5 stripes barcode
+#include "barcode_finder.h"
+
 void main(void)
 {
    // Initialization
@@ -56,12 +59,12 @@ void main(void)
       } 
       else if (KJunior_get_switch_state () == 2 )
       {
-	 // Multitasking Program with sound
+    // Multitasking Program with sound
          multitasking();
       } 
       else if (KJunior_get_switch_state () == 5) 
       {
-	 // Multitasking Program *without* sound
+    // Multitasking Program *without* sound
          mt_be_silent_please = 1;
          multitasking();
       } 
@@ -72,27 +75,27 @@ void main(void)
          
          if (KJunior_get_switch_state () == 3)
          {
-	   // Barcode Finder Program
-	   barcode_finder();
+      // Barcode Finder Program
+      barcode_finder();
          }
          
          // Read remote control presses and set camera settings accordingly
          cs_set_camera_with_tv_remote();         
          
-	 // Print values read by the linear camera on Bluetooth serial port
-	 // (for live view on a computer or smartphone)
+    // Print values read by the linear camera on Bluetooth serial port
+    // (for live view on a computer or smartphone)
          cr_print_pixels_bluetooth();
          
-	 // Reset TV remote last pressed key (this is to detect multiple key presses
-	 // on the very same key, which otherwise would not be detected)
+    // Reset TV remote last pressed key (this is to detect multiple key presses
+    // on the very same key, which otherwise would not be detected)
          cs_reset_tv_remote();
-	 
-	 // Hold on for a moment (200 ms)
-	 sleep_ms (200) ;
+    
+    // Hold on for a moment (200 ms)
+    sleep_ms (200) ;
       }
       else if (KJunior_get_switch_state () == 4)
       {
-	 // Play Bach's Badinerie tune
+    // Play Bach's Badinerie tune
          beep_badinerie () ;
       }
    } // end while
