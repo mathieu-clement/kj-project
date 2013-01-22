@@ -9,7 +9,7 @@
 /**
  * Prints an array of 34 pixels to Bluetooth output.
  *
- * @param array an array of 34 char values (as provided by HemLinCam)
+ * @param array34 an array of 34 char values (as provided by HemLinCam)
  */
 void cr_print_pixels(unsigned char *array34)
 {
