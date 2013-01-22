@@ -17,8 +17,8 @@ int8 cr_threshold = 120; ///< default camera threshold
 int8 cr_exposition_time = 1; ///< camera exposition time defaults to 1
 
 void  cr_print_pixels(unsigned char *array34);
-char* cr_make_single_pixels_array(void)
-void  cr_print_pixels_bluetooth(void);
+char* cr_make_single_pixels_array();
+void  cr_print_pixels_bluetooth();
 
 #include "simple_camera_reading.c"
 
