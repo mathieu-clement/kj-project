@@ -75,8 +75,8 @@ void main(void)
          
          if (KJunior_get_switch_state () == 3)
          {
-      // Barcode Finder Program
-      barcode_finder();
+            // Barcode Finder Program
+            barcode_finder();
          }
          
          // Read remote control presses and set camera settings accordingly
