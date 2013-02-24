@@ -4,9 +4,10 @@
 void beep_la_marseillaise(int8 tempo)
 {
     // Allons en-
-    beep_note ( D_2, 16, tempo);
-    beep_note ( D_2, 12, tempo);
-    beep_note ( D_2, 16, tempo);
+    beep_note ( MUTE, 8, tempo);
+    beep_note ( D_2, 8, tempo);
+    beep_note ( D_2, 8, tempo);
+    beep_note ( D_2, 8, tempo);
     
     // -fants de la Pa-
     beep_note ( G_2, 4, tempo);
@@ -17,29 +18,29 @@ void beep_la_marseillaise(int8 tempo)
     // -trie, Le jour de
     beep_note ( D_3, 3, tempo);
     beep_note ( B_2, 8, tempo);
-    beep_note ( G_2, 12, tempo);
-    beep_note ( G_2, 16, tempo);
-    beep_note ( B_2, 12, tempo);
-    beep_note ( G_2, 16, tempo);
+    beep_note ( G_2, 8, tempo);
+    beep_note ( G_2, 8, tempo);
+    beep_note ( B_2, 8, tempo);
+    beep_note ( G_2, 8, tempo);
     
     // gloire est arri-
     beep_note ( E_2, 4, tempo);
-    beep_note ( C_2, 2, tempo);
-    beep_note ( A_2, 12, tempo);
-    beep_note ( F_SHARP_2, 16, tempo);
+    beep_note ( C_3, 2, tempo);
+    beep_note ( A_2, 8, tempo);
+    beep_note ( F_SHARP_2, 8, tempo);
     
     // vé. Contre
     beep_note ( G_2, 2, tempo);
     beep_note ( MUTE, 4, tempo);
-    beep_note ( G_2, 12, tempo);
-    beep_note ( A_2, 16, tempo);
+    beep_note ( G_2, 8, tempo);
+    beep_note ( A_2, 8, tempo);
     
     // nous, de la tyran-
     beep_note ( B_2, 4, tempo);
     beep_note ( B_2, 4, tempo);
     beep_note ( B_2, 4, tempo);
-    beep_note ( C_3, 12, tempo);
-    beep_note ( B_2, 16, tempo);
+    beep_note ( C_3, 8, tempo);
+    beep_note ( B_2, 8, tempo);
     
     // -nie, L'étendard
     beep_note ( B_2, 8, tempo);
@@ -47,30 +48,28 @@ void beep_la_marseillaise(int8 tempo)
     beep_note ( A_2, 4, tempo);
     beep_note ( MUTE, 4, tempo);
     beep_note ( A_2, 8, tempo);
-    beep_note ( A_2, 12, tempo);
-    beep_note ( B_2, 16, tempo);
+    beep_note ( B_2, 8, tempo);
     
     // sanglant est le-
     beep_note ( C_3, 4, tempo);
     beep_note ( C_3, 4, tempo);
     beep_note ( C_3, 4, tempo);
-    beep_note ( D_3, 12, tempo);
-    beep_note ( C_3, 16, tempo);
+    beep_note ( D_3, 8, tempo);
+    beep_note ( C_3, 8, tempo);
     
     // vé, l'étendard
     beep_note ( B_2, 2, tempo);
     beep_note ( MUTE, 4, tempo);
     beep_note ( D_3, 8, tempo);
-    beep_note ( D_3, 12, tempo);
-    beep_note ( D_3, 16, tempo);
+    beep_note ( D_3, 8, tempo);
     
     // sanglant est le-
     beep_note ( D_3, 4, tempo);
-    beep_note ( B_2, 12, tempo);
-    beep_note ( G_2, 16, tempo);
+    beep_note ( B_2, 8, tempo);
+    beep_note ( G_2, 8, tempo);
     beep_note ( D_3, 4, tempo);
-    beep_note ( B_2, 12, tempo);
-    beep_note ( G_2, 16, tempo);
+    beep_note ( B_2, 8, tempo);
+    beep_note ( G_2, 8, tempo);
     
     // vé...
     beep_note ( D_2, 2, tempo);
@@ -101,11 +100,11 @@ void beep_barcode(int8 barcode_id)
             break;
         case 3:
             // Switzerland national anthem
-            beep_note(C_3, 12, tempo);
+            beep_note(C_3, 6, tempo);
             beep_note(C_3, 16, tempo);
             beep_note(C_3, 8, tempo);
             beep_note(F_3, 8, tempo);
-            beep_note(F_3, 12, tempo);
+            beep_note(F_3, 6, tempo);
             beep_note(E_3, 16, tempo);
             beep_note(E_3, 4, tempo);
             break;
@@ -135,7 +134,7 @@ void beep_barcode(int8 barcode_id)
             beep_note(E_3, 4, tempo);
             beep_note(E_3, 4, tempo);
             beep_note(E_3, 4, tempo);
-            beep_note(C_3, 4, tempo);
+            beep_note(C_3, 2, tempo);
             break;
         case 7:
             // Our own melody: Futurama Start Theme
