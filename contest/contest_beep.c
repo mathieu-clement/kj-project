@@ -45,7 +45,7 @@ void beep_la_marseillaise(int8 tempo)
     beep_note ( B_2, 8, tempo);
     beep_note ( A_2, 8, tempo);
     beep_note ( A_2, 4, tempo);
-    beep_note ( MUTE, 4, tempo)
+    beep_note ( MUTE, 4, tempo);
     beep_note ( A_2, 8, tempo);
     beep_note ( A_2, 12, tempo);
     beep_note ( B_2, 16, tempo);
