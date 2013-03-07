@@ -9,6 +9,15 @@
 
 #define HIGH_SPEED 15
 
+/**
+ * IMPORTANT NOTES
+ *
+ * This doesn't do the barcode detection and music playing yet, but can easily be added.
+ * This assumes the robot starts aligned with the line to detect it properly.
+ * This distinguishes both types of lines based on the length of the first line using time
+ * because we know how long the sensor is over black in either case.
+ */
+
 // Threshold to distinguish black and white
 // TODO: Set with TV remote
 // TODO: Start with low value
