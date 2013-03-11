@@ -9,3 +9,5 @@ doc/
 *.STA
 *.cof
 *.bak
+*.pjt
+*.lst

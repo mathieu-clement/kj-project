@@ -3,6 +3,7 @@
 #include "core.h"
 #include "positionment.h"
 #include "find_barcode.h"
+#include "avoid_obstacles.h"
 #include "tv_remote_calibration.h"
 #include "../basic_functions.h"
 
@@ -45,9 +46,7 @@ void main(void)
        do_rotation_back(direction);
        sleep_s(1);
       } else {
-         // Full throttle on white when not doing anything special
-         // like measuring black lines
-         KJunior_set_speed(HIGH_SPEED, HIGH_SPEED);
+         avoid_obstacles();        
       } // end if black_detected()
       
       sleep_ms(100);

@@ -61,13 +61,13 @@ unsigned int8 do_rotation_based_on_line()
       // Rotate left
       rotate_90degree_left();
       fprintf(USB, "LARGE LINE DETECTED\r\n");
-      return LEFT;
+      return BC_ON_LEFT;
   } else {
       // that's the smallest line
       // Rotate right
       rotate_90degree_right();
       fprintf(USB, "SMALL LINE DETECTED\r\n");
-      return RIGHT;
+      return BC_ON_RIGHT;
   }
       
 }
@@ -75,7 +75,7 @@ unsigned int8 do_rotation_based_on_line()
 
 void do_rotation_back(int1 direction)
 {
-   if(direction == LEFT){
+   if(direction == BC_ON_LEFT){
       rotate_90degree_right();     
    }else{
      rotate_90degree_left();

@@ -18,6 +18,7 @@
  */
 void sleep_s(unsigned int32 seconds)
 {
+    seconds *= 1000;
     unsigned int32 t1 = KJunior_get_time();
     while( (KJunior_get_time() - t1) < seconds);
 }

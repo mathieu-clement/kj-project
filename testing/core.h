@@ -5,12 +5,12 @@
 #define POSITION_STATE 23 //try to position correctly for the line detection
 #define NORMAL_STATE 34 //nothing special
 #define DETECT_LINE_STATE 56 // black on both
-#define HIGH_SPEED 5
+#define HIGH_SPEED 10
 #define SPEED 5
 
 
-#define LEFT 1
-#define RIGHT 0
+#define BC_ON_LEFT 1
+#define BC_ON_RIGHT 0
 
 
 #define stop() KJunior_set_speed(0, 0); 
