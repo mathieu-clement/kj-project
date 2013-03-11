@@ -40,13 +40,13 @@ void sleep_ms(unsigned int32 ms)
  * robot is not precise, so even if the calculation is right, it is impossible
  * to really make it stop where we want.
  */
-void rotate_no_move(unsigned int32 angle, int speed)
+void rotate_no_move(unsigned int32 angle, int s)
 {
-   unsigned int speed_ms = get_speed_in_mms(speed);
+   unsigned int speed_ms = get_speed_in_mms(s);
    fprintf(USB, "speed ms : %ud \r\n", speed_ms);
    unsigned int32 ms = (unsigned int32) (PERIM * 1000 / speed_ms);
    fprintf(USB, "ms : %Ld \r\n", ms);
-   KJunior_set_speed(speed, -speed);
+   KJunior_set_speed(s, -s);
    sleep_ms(ms);
    KJunior_set_speed(0, 0);
    
@@ -56,9 +56,9 @@ void rotate_no_move(unsigned int32 angle, int speed)
  * returns the speed in meter/milliseconds according to the 
  * formula found in the KJunior documentation.
  */
-unsigned int get_speed_in_mms(int32 speed)
+unsigned int get_speed_in_mms(int32 s)
 {
-   return (unsigned int)((speed * 70.0 / 20.0) + 30);
+   return (unsigned int)((s * 70.0 / 20.0) + 30);
 }
 
 
