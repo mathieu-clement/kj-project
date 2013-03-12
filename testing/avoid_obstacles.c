@@ -12,11 +12,6 @@
 void avoid_obstacles()
 {
 
- 
- 
- While (1)
- { 
-
    //if obstacles on the right and on the left, stops
    if( KJunior_get_proximity(FRONTLEFT) > MT_PROXIMITY && KJunior_get_proximity(FRONTRIGHT) > MT_PROXIMITY ) 
    {
@@ -53,7 +48,6 @@ void avoid_obstacles()
    
    //sleeps a while to avoid changing rotor speed to quickly
    sleep_ms(100);
-      
- }// end while
+
 
 }// end multitasking

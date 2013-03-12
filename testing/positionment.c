@@ -33,14 +33,19 @@ int1 do_positioning()
 
 unsigned int8 do_rotation_based_on_line()
 {
-   unsigned int16 counter = 0, limit = 7000;
+   unsigned int16 counter = 0, limit = 10000000000;
    
-   KJunior_set_speed(5, 5);
-   while(!black_on_both());  
+   //move_backward();
+   //while(!black_on_both());
    unsigned int32 start_time = KJunior_get_time();     
+   KJunior_set_speed(5,5);
+   
    // Continue rolling until we found white again
    while(black_on_both() && counter < limit) {
-      sleep_ms(10);
+      //sleep_ms(10);
+      fprintf(USB, "black    %ld    %ld\r\n", 
+         KJunior_get_proximity(GROUNDLEFT),
+         KJunior_get_proximity(GROUNDRIGHT));
       counter++;
    }   
    // How much time did we stay on that black line?
@@ -57,7 +62,7 @@ unsigned int8 do_rotation_based_on_line()
 
    // If time on black over 200 ms:
    // that's the largest line
-   if(time_on_black > 400) {
+   if(time_on_black > LINE_TIME_THRESHOLD) {
       // Rotate left
       rotate_90degree_left();
       fprintf(USB, "LARGE LINE DETECTED\r\n");
@@ -82,6 +87,11 @@ void do_rotation_back(int1 direction)
    }
 }
 
+
+void avoid_black_lines(){
+   while(black_detected())
+      avoid_obstacles();
+}
 
 void rotate_90degree_left()
 {

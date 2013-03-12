@@ -6,12 +6,7 @@
 
 // K-Junior
 
-//------------------
-char* pixels;
-signed int8 barcodeFound = 0;
-unsigned int8 blackIndex = 0, whiteIndex = 0;
-unsigned int16 white_lines[52], black_lines[52];
-//------------------
+
 
 
 

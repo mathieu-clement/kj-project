@@ -19,7 +19,9 @@ void main(void)
    HemLinCam_Init (); // currently all this does is sleeping for 1 second...
    cs_init(); // Init camera settings and TV remote control
    
+   KJunior_set_speed(0,0);
    calibrate_thresholds();
+   move_forward();
    
    while (1)
    {
@@ -31,7 +33,8 @@ void main(void)
       
       if (black_detected()) 
       {
-       
+         KJunior_set_speed(5, 5);
+         fprintf(USB, "        BLACK DETECTED\r\n");
          if(!do_positioning())
              continue;
        
@@ -44,6 +47,7 @@ void main(void)
        //signed int8 bc = find_barcode();
        sleep_ms(800);
        do_rotation_back(direction);
+       avoid_black_lines();
        sleep_s(1);
       } else {
          avoid_obstacles();        

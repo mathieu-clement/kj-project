@@ -36,6 +36,12 @@
 #define NOT_ENOUGH_BLACK_LINES -4
 #define WHITE_LINES_SUCK -5
 
+//------------------
+char* pixels;
+signed int8 barcodeFound = 0;
+unsigned int8 blackIndex = 0, whiteIndex = 0;
+unsigned int16 white_lines[52], black_lines[52];
+//------------------
 
 void getLines(char* pixels);
 void printStats();
