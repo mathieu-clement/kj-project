@@ -159,7 +159,7 @@ signed int8 findBarcode()
 
       // 5: 000 1 0 1 000
       //middle black line ~ the same width than white lines
-      if( lineWidth < 13 && black_lines[1] < 10 )
+      if( lineWidth < 14 && black_lines[1] < 10 )
       {
          fprintf(USB, "    DETECTED BARCODE N°5\r\n\r\n");
          return 5;
@@ -190,10 +190,11 @@ signed int8 findBarcode()
 }
 
 
-
+/*
 signed int8 find_barcode(void)
 {   
 
+   
    while (1)
    {    
       HemLinCam_Read_Pixels () ;
@@ -202,21 +203,56 @@ signed int8 find_barcode(void)
       printStats();
 
       fprintf(USB, "\r\n");
-      int i = 0;
-      /*for(; i < 102; i++)
-         fprintf(USB, " %u", pixels[i]);
-      fprintf(USB, " \r\n\r\n");*/
       
       barcodeFound = findBarcode();
       if( barcodeFound > NOT_FOUND )
       {
          fprintf(USB, "    DETECTED BARCODE N° %d", barcodeFound);
+         bc_found[ barcodeFound -1]++;
          return barcodeFound;
       }
       fprintf(USB, "\r\n\r\n");
       sleep_s(1);
       
    } // end while
+   
+} // end find_barcode
+*/
+
+
+
+signed int8 find_barcode(unsigned int32 timeout)
+{   
+
+   unsigned int32 start_time = KJunior_get_time();
+   
+   while ( ( KJunior_get_time() - start_time ) < timeout )
+   {    
+      HemLinCam_Read_Pixels () ;
+      pixels = cr_make_single_pixels_array();
+      getLines(pixels);
+      printStats();
+      fprintf(USB, "\r\n");
+      
+      barcodeFound = findBarcode();
+      if( barcodeFound > NOT_FOUND )
+      {
+         fprintf(USB, "    DETECTED BARCODE N° %d\r\n", barcodeFound);
+         bc_found[ barcodeFound - 1]++;
+         
+         if(bc_found[barcodeFound - 1] > 10){ 
+            fprintf(USB, "    DEFINITELY DETECTED BARCODE N° %d\r\n", barcodeFound);
+            return barcodeFound;
+         }
+      }
+      
+      fprintf(USB, "\r\n\r\n");
+      sleep_s(1);
+      
+   } // end while
+   
+   fprintf(USB, "    TIMEOUT");
+   return NOT_FOUND;
    
 } // end find_barcode
 

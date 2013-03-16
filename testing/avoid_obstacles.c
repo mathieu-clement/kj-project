@@ -15,7 +15,7 @@ void avoid_obstacles()
    //if obstacles on the right and on the left, stops
    if( KJunior_get_proximity(FRONTLEFT) > MT_PROXIMITY && KJunior_get_proximity(FRONTRIGHT) > MT_PROXIMITY ) 
    {
-      KJunior_set_speed(0, 0);   
+      stop();   
    }
    //if obstacle to the left, turns right
    else if( KJunior_get_proximity(LEFT) > MT_PROXIMITY || KJunior_get_proximity(FRONTLEFT) > MT_PROXIMITY )
@@ -43,11 +43,10 @@ void avoid_obstacles()
    //else, go forward
    else
    {
-      KJunior_set_speed( HIGH_SPEED, HIGH_SPEED );
+      move_forward();
    }
    
    //sleeps a while to avoid changing rotor speed to quickly
    sleep_ms(100);
 
-
-}// end multitasking
+}// end avoid_obstacles

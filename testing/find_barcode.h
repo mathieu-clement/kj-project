@@ -41,14 +41,15 @@ char* pixels;
 signed int8 barcodeFound = 0;
 unsigned int8 blackIndex = 0, whiteIndex = 0;
 unsigned int16 white_lines[52], black_lines[52];
+unsigned int8 bc_found[7];
 //------------------
 
 void getLines(char* pixels);
 void printStats();
 int1 isSizeExpected( int8 expected, int8 value );
 unsigned int8 diffBetween( int8 v1, int8 v2 );
-signed int8 findBarcode();
-signed int8 find_barcode(void);
+//signed int8 findBarcode();
+signed int8 find_barcode(unsigned int32);
 
 #include "find_barcode.c"
 
