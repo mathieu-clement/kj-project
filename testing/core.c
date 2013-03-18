@@ -1,6 +1,6 @@
 
 
-enum STATE curr_state; 
+int1 normal_state = 1; 
 
 
 // Returns true (1) if one of the side ground sensors is on black.
@@ -35,7 +35,7 @@ int1 black_on_right()
 
 void turn_left()
 {
-   if(curr_state == normal_state)
+   if(normal_state)
       KJunior_set_speed(0, HIGH_SPEED); 
    else
       KJunior_set_speed(0, SPEED); 
@@ -43,7 +43,7 @@ void turn_left()
 
 void turn_right()
 {
-   if(curr_state == normal_state)
+   if(normal_state)
       KJunior_set_speed(HIGH_SPEED, 0); 
    else
       KJunior_set_speed(SPEED, 0); 
@@ -51,7 +51,7 @@ void turn_right()
 
 void move_forward()
 {
-   if(curr_state == normal_state)
+   if(normal_state)
       KJunior_set_speed(HIGH_SPEED, HIGH_SPEED); 
    else
       KJunior_set_speed(SPEED, SPEED); 
@@ -59,7 +59,7 @@ void move_forward()
 
 void move_backward()
 {
-   if(curr_state == normal_state)
+   if(normal_state)
       KJunior_set_speed(-HIGH_SPEED, -HIGH_SPEED); 
    else
       KJunior_set_speed(-SPEED, -SPEED); 

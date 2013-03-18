@@ -22,7 +22,7 @@ int1 do_positioning()
          }
       }
     
-      sleep_ms(100);
+      sleep_ms(30);
   }//end while
   
   fprintf(USB, "                 POSITION OK\r\n");
@@ -39,7 +39,7 @@ signed int8 do_rotation_based_on_line()
    //while(!black_on_both());
    unsigned int32 time_on_black = 0;
    unsigned int32 start_time = KJunior_get_time();     
-   move_forward();
+   KJunior_set_speed(SPEED, SPEED); 
    
    // Continue rolling until we find white again
    while( black_on_both() ) {
@@ -48,7 +48,7 @@ signed int8 do_rotation_based_on_line()
          KJunior_get_proximity(GROUNDLEFT),
          KJunior_get_proximity(GROUNDRIGHT));
        time_on_black = KJunior_get_time() - start_time; 
-       if(time_on_black < limit) {
+       if(time_on_black > limit) {
         fprintf(USB, "Time on black: %ld ms  ----> timeout\r\n", time_on_black);
         return -1;
       }

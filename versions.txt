@@ -1,0 +1,41 @@
+//-----------------------------------------------------------------------//
+//-                           KJOs Project                              -//
+//-                  Frederic Lambercy, K-Team S.A. 2012                -//
+//-                 Contact : info@k-team.com                           -//
+//-           								-//
+//-									-//
+//-        English : KJOs is totaly open-source and free, but if you    -//
+//-                  find some errors in the code or if you make        -//
+//-                  improvements please inform me by E-mail            -//
+//-        French  : KJOs est totalement en open-source et gratuit      -//
+//-                  néanmoins si vous trouvez des erreurs dans le code -//
+//-                  Ou si vous réaliser des améliorations, merci de    -//
+//-                  m'en informer par E-Mail                           -//
+//-			                                                -//
+//-			                                                -//
+//-                             __  __  ________			-//
+//- K-Team S.A.                |  |/  /|__    __|___  _____  ___  ___   -//
+//- Z.I. Les Plans-Praz        |     / __ |  | _____|/  _  \|   \/   |  -//
+//- 1337 Vallorbe	       |  |  \    |  | ____|/  /_\  |        |  -//
+//- Switzerland                |__|\__\   |__|______|_/   \_|__|\/|__|  -//
+//-                            tel:+41 24 423 8950 fax:+41 24 423 8960  -//
+//-									-//
+//-----------------------------------------------------------------------//
+
+///////////////////////////////////////////////////////////////////////////
+
+/*!   \file versions.txt
+      \brief Informations about updates of each released version
+*/
+
+///////////////////////////////////////////////////////////////////////////
+
+Versions informations
+
+	B-01 : 		First version for K-Junior v2. Contains already all correction of the previous K-Junior.
+		
+	B-02 :		K-Junior_delay_xx() correction. Change the type of parameter to accept up to 65535.
+	
+	B-03:    - IR calibration added for the two ground sensor. 
+           - Modification of the Line following function.
+  B-04:    - Correction of the IR calibration eeprom location

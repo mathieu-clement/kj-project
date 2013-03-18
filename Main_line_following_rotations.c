@@ -9,9 +9,9 @@
 #define turn_left() KJunior_set_speed(-SPEED, SPEED); led_display_number(8)
 #define turn_right() KJunior_set_speed(SPEED, -SPEED); led_display_number(1)
 #define move_forward() KJunior_set_speed(SPEED, SPEED); led_display_number(6)
-#define left_on_black() (KJunior_get_proximity(GROUNDFRONTLEFT) < THRESHOLD) 
-#define right_on_black() (KJunior_get_proximity(GROUNDFRONTRIGHT) < THRESHOLD)
-#define is_up() (KJunior_get_proximity(GROUNDFRONTRIGHT) < 1000 && KJunior_get_proximity(GROUNDFRONTRIGHT) < 1000)
+#define left_on_black() (KJunior_get_proximity(GROUNDFRONTLEFT) >= THRESHOLD) 
+#define right_on_black() (KJunior_get_proximity(GROUNDFRONTRIGHT) >= THRESHOLD)
+
 
 enum ACTION
 {
@@ -58,12 +58,8 @@ void main(void)
          KJunior_get_proximity(GROUNDFRONTLEFT),KJunior_get_proximity(GROUNDFRONTRIGHT));
       fprintf(BT, "Threshold: %ld, Left: %ld, Right: %ld\r\n", THRESHOLD,
          KJunior_get_proximity(GROUNDFRONTLEFT),KJunior_get_proximity(GROUNDFRONTRIGHT));
-      if(is_up()){
-         stop();
-         last_action = STOP;
-         counter = 0;
-         continue;
-      }else if(left_on_black() && right_on_black()) {
+   
+   if(left_on_black() && right_on_black()) {
       
          stop();
          led_display_number(9);

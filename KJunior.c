@@ -79,10 +79,10 @@ void KJunior_init(void)
   
  setup_oscillator(OSC_16MHZ);                                                   // use internal osc@16 MHz, no clockout
  for (i=0;i<=GROUNDRIGHT;i++)                                                   // Init the IR table values and the read the calibrate value in the EEPROM
-             {
+ {
    IR_Light[i]= 0;
    IR_Proximity[i] = 0;
-   IR_Calibrate[i] = read_eeprom((EEPROM_ADD*2*i)+1);
+   IR_Calibrate[i] = read_eeprom((EEPROM_ADD+(2*i))+1);
    IR_Calibrate[i] = (signed int16)(IR_Calibrate[i]<<8) + read_eeprom(EEPROM_ADD*2*i);
    if(IR_Calibrate[i] == 0xFFFF)                                                // If the Eeprom has not been initialize, reset the value
      IR_Calibrate[i] = 0;
@@ -1024,11 +1024,40 @@ void __K()
        IR_Calibrate[i] = IR_Temp_Calibrate[i] >> 3;                             // Divide all the Calibrated value and store them in the final table
        IR_Calibrate[i] += IR_CALIB_TH;
        Eeprom_temp = IR_Calibrate[i] & 0x00FF;                                  // Save the calibrate data in the EEPROM
-       write_eeprom(EEPROM_ADD*2*i,Eeprom_temp);
+       write_eeprom(EEPROM_ADD+(2*i),Eeprom_temp);
        Eeprom_temp = (IR_Calibrate[i] & 0xFF00) >> 8;
-       write_eeprom((EEPROM_ADD*2*i)+1,Eeprom_temp);
+       write_eeprom((EEPROM_ADD+(2*i))+1,Eeprom_temp);
        
      }
+     
+     // Calibrate the two ground sensor for a white floor (use in line following)
+     fprintf(BT,"Please place the K-Junior on a white floor to calibrate the two ground sensor.\n\r"); // Send the response
+     fprintf(BT,"Press ENTER to proceed\n\r");
+     IR_Temp_Calibrate[GROUNDFRONTLEFT] = 0;
+     IR_Temp_Calibrate[GROUNDFRONTRIGHT] = 0;
+     SerialCommandOK = 0;
+     while(SerialCommandOK == 0);                                               // Wait the ENTER press
+     for(j = 0; j < 8; j++)
+     {
+       Sensors_Refreshed_Flag = 0;                                                // Start a new measure of the IR sensor
+       Manual_Refresh_sensors = 1;
+       while(Sensors_Refreshed_Flag == 0);                                        // Wait until the sensor are refreshed
+       IR_Temp_Calibrate[GROUNDFRONTRIGHT] += IR_Proximity[GROUNDFRONTRIGHT];   // Save the value of the proximity when no obstacle are present
+       IR_Temp_Calibrate[GROUNDFRONTLEFT] += IR_Proximity[GROUNDFRONTLEFT];     // Save the value of the proximity when no obstacle are present
+     }
+     IR_Temp_Calibrate[GROUNDFRONTLEFT] = IR_Temp_Calibrate[GROUNDFRONTLEFT] >> 3;   // Divide the Calibrated value and store them in the final table
+     Eeprom_temp = IR_Temp_Calibrate[GROUNDFRONTLEFT] & 0x00FF;                      // Save the calibrate data in the EEPROM
+     write_eeprom(EEPROM_GND_LEFT,Eeprom_temp);
+     Eeprom_temp = (IR_Temp_Calibrate[GROUNDFRONTLEFT] & 0xFF00) >> 8;
+     write_eeprom(EEPROM_GND_LEFT+1,Eeprom_temp);
+
+     IR_Temp_Calibrate[GROUNDFRONTRIGHT] = IR_Temp_Calibrate[GROUNDFRONTRIGHT] >> 3;
+     Eeprom_temp = IR_Temp_Calibrate[GROUNDFRONTRIGHT] & 0x00FF;                      // Save the calibrate data in the EEPROM
+     write_eeprom(EEPROM_GND_RIGHT,Eeprom_temp);
+     Eeprom_temp = (IR_Temp_Calibrate[GROUNDFRONTRIGHT] & 0xFF00) >> 8;
+     write_eeprom(EEPROM_GND_RIGHT+1,Eeprom_temp);
+     
+
      Auto_Refresh_Sensors = 1;
      fprintf(BT,"Calibration done\n\r");                                        // Send the response
      

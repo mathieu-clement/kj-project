@@ -93,6 +93,8 @@
 #define VBAT_AN               6
 
 #define EEPROM_ADD            10
+#define EEPROM_GND_LEFT       40
+#define EEPROM_GND_RIGHT      42
 
 #define IR_GROUP1             PIN_D1
 #define IR_GROUP2             PIN_D2
@@ -122,7 +124,7 @@
 #define OFF                   0
 
 #define KJ_FW_VERSION   "B"
-#define KJ_FW_REVISION  1                                                       // Please set revision!
+#define KJ_FW_REVISION  4                                                       // Please set revision!
 #define KJ_FW_REFERENCE "510.0055"
 
 #define RC5_HEADER       0xC0

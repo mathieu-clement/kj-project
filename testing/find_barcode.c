@@ -224,6 +224,7 @@ signed int8 find_barcode(void)
 signed int8 find_barcode(unsigned int32 timeout)
 {   
 
+   unsigned int8 bc_found[7];
    unsigned int32 start_time = KJunior_get_time();
    
    while ( ( KJunior_get_time() - start_time ) < timeout )
@@ -240,14 +241,14 @@ signed int8 find_barcode(unsigned int32 timeout)
          fprintf(USB, "    DETECTED BARCODE N° %d\r\n", barcodeFound);
          bc_found[ barcodeFound - 1]++;
          
-         if(bc_found[barcodeFound - 1] > 10){ 
+         if(bc_found[barcodeFound - 1] > 20){ 
             fprintf(USB, "    DEFINITELY DETECTED BARCODE N° %d\r\n", barcodeFound);
             return barcodeFound;
          }
       }
       
       fprintf(USB, "\r\n\r\n");
-      sleep_s(1);
+      sleep_ms(500);
       
    } // end while
    

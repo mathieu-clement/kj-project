@@ -51,7 +51,6 @@
 
 
 
-
 //#org 0xFC00, 0xFFFE {}                                                          // Bootloader Protection
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -399,9 +398,9 @@ void KJunior_manual_refresh_sensors()
    */
 /*@{*/
 ////////////////////////////////////////////////////////////////////////////////
-/*!   \fn void KJunior_delay_s(int16 Delay)
+/*!   \fn void KJunior_delay_s(int Delay)
       \brief This function stop program execution (but not the interrupts) during the defined time in second
-      \param Delay 0 to 65535
+      \param Delay 1 to 65535
       \retval None
 */
 ////////////////////////////////////////////////////////////////////////////////
@@ -416,9 +415,9 @@ void KJunior_delay_s(int16 Delay)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-/*!   \fn void KJunior_delay_ms(int16 Delay)
+/*!   \fn void KJunior_delay_ms(int Delay)
       \brief This function stop program execution (but not the interrupts) during the defined time in millisecond
-      \param Delay 0 to 65535
+      \param Delay 1 to 65535
       \retval None
 */
 ////////////////////////////////////////////////////////////////////////////////
@@ -428,9 +427,9 @@ void KJunior_delay_ms(int16 Delay)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-/*!   \fn void KJunior_delay_us(int16 Delay)
+/*!   \fn void KJunior_delay_us(int Delay)
       \brief This function stop program execution (but not the interrupts) during the defined time in microsecond
-      \param Delay 0 to 65535
+      \param Delay 1 to 65535
       \retval None
 */
 ////////////////////////////////////////////////////////////////////////////////

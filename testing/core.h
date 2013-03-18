@@ -10,17 +10,11 @@
 
 #define stop() KJunior_set_speed(0, 0); 
 
-enum STATE  /* Declares an enumeration data type called BOOLEAN */
-{
-    normal_state,     /*  */
-    position_state,
-    detect_line_state,
-    detect_barcode_state 
-      
-};
+unsigned int16 bw_threshold_left = 1000;
+unsigned int16 bw_threshold_right = 1000;
 
-extern enum STATE curr_state;
-extern unsigned int16 bw_threshold_left, bw_threshold_right;
+//extern int1 normal_state;
+//extern unsigned int16 bw_threshold_left, bw_threshold_right;
 
 int1 black_detected();
 int1 black_on_both();

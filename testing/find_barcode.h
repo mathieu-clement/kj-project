@@ -41,7 +41,6 @@ char* pixels;
 signed int8 barcodeFound = 0;
 unsigned int8 blackIndex = 0, whiteIndex = 0;
 unsigned int16 white_lines[52], black_lines[52];
-unsigned int8 bc_found[7];
 //------------------
 
 void getLines(char* pixels);
