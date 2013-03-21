@@ -129,6 +129,7 @@ void main() {
          sleep_ms(100);
       }//end while
    }//end while
+   
 camera:
    while (KJunior_get_tv_data() != TV_POWER)
    {    
@@ -151,6 +152,7 @@ camera:
    
    while(1)
    {
+   
 begin:
       fprintf(USB, " frontleft %ld frontright %ld \r\n", KJunior_get_proximity(FRONTLEFT), KJunior_get_proximity(FRONTRIGHT));
       // Obstacle detection
