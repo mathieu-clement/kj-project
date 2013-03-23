@@ -45,11 +45,11 @@ signed int8 find_barcode(unsigned int32 timeout)
       barcodeFound = findBarcode();
       if( barcodeFound > NOT_FOUND )
       {
-         fprintf(USB, "    DETECTED BARCODE N° %d\r\n", barcodeFound);
+         fprintf(USB, "    DETECTED BARCODE No %d\r\n", barcodeFound);
          bc_found[ barcodeFound - 1]++;
          
          if(bc_found[barcodeFound - 1] > 20){ 
-            fprintf(USB, "    DEFINITELY DETECTED BARCODE N° %d\r\n", barcodeFound);
+            fprintf(USB, "    DEFINITELY DETECTED BARCODE No %d\r\n", barcodeFound);
             return barcodeFound;
          }
       }
@@ -141,7 +141,7 @@ camera:
       fprintf(USB, "\r\n");
       barcodeFound = findBarcode();     
       if( barcodeFound > NOT_FOUND )
-         fprintf(USB, "    DETECTED BARCODE NÃ‚Â° %d", barcodeFound);
+         fprintf(USB, "    DETECTED BARCODE No %d", barcodeFound);
       fprintf(USB, "\r\n\r\n");
       sleep_s(1);      
    } // end while
@@ -300,3 +300,4 @@ position:
       sleep_ms(100);
    } // end while
 } // end main
+
